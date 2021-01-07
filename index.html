@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .game{
+        width: 50px;
+        background: paleturquoise;
+        margin: 50px 50px;
+    }
+    #o1{
+        width:  50px;
+        height: 50px;
+        background: black;
+    }
+    #o2{
+        width:  50px;
+        height: 50px;
+        background: red;
+    }
+    /*.o3{*/
+    /*    width:  50px;*/
+    /*    height: 50px;*/
+    /*    background: yellow;*/
+    /*}*/
+    .img{
+        margin: 50px 50px;
+        width: 50px;
+        height: 50px;
+    }
+</style>
+<body>
+<!--<div class="game">-->
+<!--    <div id="o1" onclick="doi()">1</div>-->
+<!--    <div id="o2" >2</div>-->
+<!--    <button onclick="myFunction()">Run</button>-->
+<!--&lt;!&ndash;    <div class="o3" onclick="doi_vi_tri(3)">3</div>&ndash;&gt;-->
+<!--</div>-->
+        <div class="img">
+            <img id="dog_img1" onclick="changimg1()" src="img/cho1.png" alt="">
+            <img id="dog_img2" onclick="changimg2()" src="img/cho2.png" alt="">
+        </div>
+
+
+<script>
+
+            var count = 0;
+            function changimg1(){
+
+                var imgs = ["img/cho1.png", "img/cho2.png", "img/cho3.png"];
+                document.getElementById('dog_img1').src = imgs[count];
+                count++;
+                if (count==3){
+                    count=0;
+                }
+            }
+            function changimg2(){
+
+                var imgs = ["img/cho1.png", "img/cho2.png", "img/cho3.png"];
+                document.getElementById('dog_img2').src = imgs[count];
+                count++;
+                if (count==3){
+                    count=0;
+                }
+            }
+
+        // function doi(){
+        //     var box = document.getElementById('o1');
+        //     var boxcl =document.getElementById('o2');
+        // console.log(boxcl.style.backgroundColor);
+        //     box.style.background = 'yellow';
+        // }  <button onclick="myFunction()">Run</button>
+
+            // document.getElementById('o2').style.background;
+    // var x = math.random('number');
+    //
+    //
+    // console.log(x);
+    //     function myFunction() {
+    //         var content = Math.random()*100;
+    //         console.log(content);
+    //
+    //     }
+
+        // var i;
+        //
+        // for (i = 0; i < 100;){
+        //         i++;
+        // }
+        // console.log(i);
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

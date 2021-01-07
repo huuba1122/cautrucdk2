@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    td{
+        width: 60px;
+        height: 40px;
+        text-align: center;
+    }
+    td#screen {
+        text-align: right;
+        font-size: 25px;
+        padding-right: 5px;
+    }
+    table#calculator {
+        width: 240px;
+        border-collapse: collapse;
+    }
+</style>
+<body>
+
+
+
+
+<!--B1: Vẽ giao diện-->
+<table id="calculator" border="1px" style="display: block">
+    <tr>
+        <td id="input" colspan="4"></td>
+    </tr>
+    <tr>
+        <td onclick="clickKey(1)">1</td>
+        <td onclick="clickKey(2)">2</td>
+        <td onclick="clickKey(3)">3</td>
+        <td onclick="clickKey('+')">+</td>
+    </tr>
+    <tr>
+        <td onclick="clickKey(4)">4</td>
+        <td onclick="clickKey(5)">5</td>
+        <td onclick="clickKey(6)">6</td>
+        <td onclick="clickKey('-')">-</td>
+    </tr>
+    <tr>
+        <td onclick="clickKey(7)">7</td>
+        <td onclick="clickKey(8)">8</td>
+        <td onclick="clickKey(9)">9</td>
+        <td onclick="clickKey('*')">x</td>
+    </tr>
+    <tr>
+        <td onclick="resetInput()">C</td>
+        <td onclick="clickKey(0)">0</td>
+        <td onclick="cal()">=</td>
+        <td onclick="clickKey('/')">/</td>
+    </tr>
+</table>
+
+<script>
+    let  bieuThuc = document.getElementById('input');
+
+    //B2: Click số
+    function clickKey(symboy) {
+        bieuThuc.innerHTML = bieuThuc.innerHTML + symboy;
+    }
+
+    function cal() {
+        let listValue = bieuThuc.innerHTML;
+
+        // dung ham eval de tinh toan dang bieu thuc toan hoc
+        let result = eval(listValue);
+        bieuThuc.innerHTML = result;
+    }
+    //
+    function resetInput() {
+        bieuThuc.innerHTML = "";
+    }
+
+</script>
+</body>
+</html>

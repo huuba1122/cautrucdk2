@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+nhap chieu cao
+<input type="number" id="chieucao">
+nhap can nang
+<input type="number" id="cannang">
+<br>
+<button id="bmi" onclick="BMI()">chi so bmi</button>
+<input type="text" id="result">
+
+<br>
+<span id="evaluate"></span>
+
+
+<script>
+        function BMI() {
+            var cao = document.getElementById('chieucao').value;
+            var nang = document.getElementById('cannang').value;
+             var result = nang/(cao**2);
+             document.getElementById('result').value = result.toFixed(1);
+            if(result < 18.5){
+                document.getElementById('evaluate').innerText = 'Underweight';
+            }else if (result < 25){
+                document.getElementById('evaluate').innerText = 'Normal';
+            }else if (result < 30){
+                document.getElementById('evaluate').innerText = 'Overweight';
+            }else {
+                document.getElementById('evaluate').innerText = 'Obese';
+            }
+        }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyen tap cau truc dieu kien</title>
+</head>
+<body>
+
+
+    <div>
+            <h1>bai 1 kiem tra a co chia het cho b hay khong</h1>
+            <input type="number" id="bai1_a">
+            <br>
+            <input type="text" id="bai1_b">
+            <br>
+            <button onclick="bai1_test()">kiem tra</button>
+            <span id="bai1_result"></span>
+    </div>
+    <div>
+        <h1>Nhập tuổi và in ra kết quả nếu tuổi học sinh đó không đủ điều kiện vào học lớp 10.</h1>
+
+        <input type="text" id="bai2_tuoi" placeholder="Nhap so tuoi">
+        <br>
+        <button onclick="bai2_kt()">kiem tra</button>
+        <span id="bai2_result"></span>
+    </div>
+    <div>
+        <h1>Bài 3: Nhập một số nguyên bất kỳ và in kết quả ra màn hình để nói cho người dùng biết số đó là lớn hay nhỏ hơn 0</h1>
+        <input type="text" id="bai3_number" nhap so nguyen bat ky>
+        <button onclick="bai3_result()">kiem tra</button>
+        <span id="bai3_result"></span>
+
+    </div>
+    <div class="bai4">
+        <h1>Bài 4: Nhập 3 số nguyên và tìm giá trị lớn nhất của ba số nguyên đó</h1>
+        number1:
+        <input type="text" id="bai4_input1"><br>
+        number2:
+        <input type="text" id="bai4_input2"><br>
+        number3:
+        <input type="text" id="bai4_input3"><br>
+        <button onclick="bai4_test()">test</button>
+        <span id="bai4-result"></span>
+    </div>
+    <div>
+        <h1>Bài 5: Xếp hạng học lực của học sinh </h1>
+        Diem giua ky:
+        <input type="text" id="bai5-num1"><br>
+        Diem cuoi ky:
+        <input type="text" id="bai5-num2"><br>
+        Diem tong ket (giua ky + cuoi ky x 2)/3 (diem tong ket <5 kem; 5->6.5 tb; 6.5->8.4 kha; >8.5 gioi)
+        <button onclick="bai5_result()">Diem tong ket</button>
+
+        <span id="bai5-result"></span><br>
+        <span id="evaluate"></span>
+    </div>
+
+
+
+</body>
+
+
+<script>
+
+    /**     bai 5   */
+        function bai5_result() {
+            let giuaKy = +document.getElementById('bai5-num1').value;
+            let cuoiKy = +document.getElementById('bai5-num2').value;
+            let evaluate = document.getElementById('evaluate');
+            let diemtong = (giuaKy + cuoiKy*2)/3;
+            document.getElementById('bai5-result').innerText = diemtong.toFixed(2);
+            if (diemtong < 5) {
+                evaluate.innerText = 'Học lực: Kém';
+            } else if (diemtong < 6.4) {
+                evaluate.innerText = 'Học lực: Trung bình';
+            }else if (diemtong < 8.4) {
+                evaluate.innerText = 'Học lực: Khá';
+            }else {
+                evaluate.innerText = 'Học lực: Giỏi';
+            }
+
+    }
+
+    /**         bai 4   */
+    function bai4_test() {
+        let number1 = +document.getElementById('bai4_input1').value;
+        let number2 = +document.getElementById('bai4_input2').value;
+        let number3 = +document.getElementById('bai4_input3').value;
+        let result4 = document.getElementById('bai4-result');
+        if( number1 > number2 && number1 > number3){
+                result4.innerText = 'max: = '+ number1;
+            }else if(number2 > number3){
+                result4.innerText = 'max: = ' + number2;
+        }else {
+            result4.innerText = 'max: = ' + number3;
+        }
+    }
+
+
+    // bai 1
+    function bai1_test() {
+        let a = +document.getElementById('bai1_a').value;
+        let b = +document.getElementById('bai1_b').value;
+        if( a%b==0){
+            document.getElementById('bai1_result').innerHTML = a +' chia het cho '+ b;
+        }else {
+            document.getElementById('bai1_result').innerHTML = a +' khong chia het cho '+ b;
+        }
+        // let c = a%b;
+        // console.log(c);
+    }
+
+
+    // bai 2
+    function bai2_kt() {
+        let tuoi= +document.getElementById('bai2_tuoi').value;
+        if (tuoi<15){
+            document.getElementById('bai2_result').innerHTML = 'ban chua du tuoi vao lop 10';
+        }else {
+            document.getElementById('bai2_result').innerHTML = 'ban du tuoi vao lop 10';
+        }
+    }
+
+
+    //bai 3
+    function bai3_result() {
+        let number3 = +document.getElementById('bai3_number').value;
+        if(number3 == 0){
+            document.getElementById('bai3_result').innerHTML = 'nhap vao so khac 0';
+
+        }else if(number3 > 0){
+            document.getElementById('bai3_result').innerHTML = number3 +' la so lon hon 0';
+        }else {
+            document.getElementById('bai3_result').innerHTML = number3 +' la so be hon 0';
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--    <div>-->
+<!--        <h1>Bài 1: Chuyển từ độ C sang độ F.</h1>-->
+<!--        Nhập nhiệt độ (oC)-->
+<!--        <input type="text" id="temp1" onkeyup="convert_temp()"><br>-->
+<!--        Độ F:-->
+<!--        <span id="bai1-result"></span>-->
+<!--    </div>-->
+
+<!--        <div>-->
+<!--            <h1>Bài 2: Chuyển từ mét sang feet:</h1>-->
+<!--            Nhập số cần đổi (m)&ndash;&gt;-->
+<!--            <input type="text" id="length1" onkeyup="convert_length()"><br>-->
+<!--            Đơn vị (feet):-->
+<!--            <span id="bai2-result"></span>-->
+<!--        </div>-->
+
+<!--            <div>-->
+<!--                <h1>Bài 3: Tính diện tích hình vuông khi biết cạnh a.</h1>-->
+<!--                Nhập vào chiều cạnh(m):-->
+<!--                <input type="text" id="length3" onkeyup="area3()"><br>-->
+<!--                Diện tích(m2):-->
+<!--                <span id="bai3-result"></span>-->
+<!--            </div>-->
+
+<!--                <div>-->
+<!--                    <h1>Bài 4: Tính diện tích hình  chữ nhật khi biết 02 cạnh a, b.</h1>-->
+<!--                    Nhập chiều dài (m):-->
+<!--                    <input type="text" id="chieuDai"><br>-->
+<!--                    Nhập chiều cao (m):-->
+<!--                    <input type="text" id="chieuCao"><br>-->
+<!--                    <button onclick="area()">Diện tích</button>-->
+<!--                    <span id="bai4-result"></span>-->
+<!--                </div>-->
+
+
+<!--                    <div>-->
+<!--                        <h1>Bài 5: Tính diện tích tam giác vuông khi biết 02 cạnh kề a, b.</h1>-->
+<!--                        Nhập chiều dài (m):-->
+<!--                        <input type="text" id="canha"><br>-->
+<!--                        Nhập chiều cao (m):-->
+<!--                        <input type="text" id="canhb"><br>-->
+<!--                        <button onclick="areabai5()">Diện tích</button>-->
+<!--                        <span id="bai5-result"></span>-->
+<!--                    </div>-->
+<!--                        <div>-->
+<!--                            <h1>Bài 11: Viết chương trình tính thuế thu nhập cá nhân.</h1>-->
+<!--                            Nhập vảo số tiền thu nhập một năm của bạn (triệu đồng):-->
+<!--                            <input type="text" id="income"><br>-->
+<!--                            <button onclick="incomeTax()">Tiền thuế:</button>-->
+<!--                            <span id="incomeTax"></span>-->
+<!--                        </div>-->
+            <div>
+                <h1>Bài 12: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lãi con)</h1>
+                <h3> khi biết số tiền ban đầu, số tháng cho vay và lãi xuất hàng tháng.</h3>
+                Tiền gửi ngân hàng:
+                <input type="text" id="monney"><br>
+                Số tháng gửi:
+                <input type="text" id="month"><br>
+                Lãi mỗi tháng:
+                <input type="text" id="rate"><br>
+                <button onclick="totalRate()">Tổng số lãi:</button>
+                <span id="totalRate"></span>
+            </div>
+</body>
+
+
+<script>
+    /**             bài 12      */
+    function totalRate() {
+        let monney = +document.getElementById('monney').value;
+        let month = +document.getElementById('month').value;
+        let rate = +document.getElementById('rate').value;
+        let i = 0;
+        let totalRate = 0;
+        while (i <= month)   {
+            totalRate =  monney*rate*i + totalRate*rate*(i-1);
+            i++;
+        }
+        document.getElementById('totalRate').innerText = 'Tổng lãi sau ' + month + ' tháng là: ' + totalRate.toFixed(3) + ' tr';
+    }
+
+    /**            bài 11       **/
+    // function incomeTax() {
+    //     let income = +document.getElementById('income').value;
+    //     let result11 = document.getElementById('incomeTax');
+    //     if (income < 60) {
+    //         result11.innerText = income * 5/100 + 'triệu đồng';
+    //     }else if (income < 120) {
+    //                 result11.innerText = income * 10/100 + 'triệu đồng';
+    //             }else if (income < 216) {
+    //                         result11.innerText = income * 15/100 + 'triệu đồng';
+    //                     } else if (income < 384) {
+    //                            result11.innerText = income * 20 / 100 + 'triệu đồng';
+    //                             }else if (income < 624) {
+    //                                       result11.innerText = income * 25 / 100 + 'triệu đồng';
+    //                                     }else if (income < 960) {
+    //                                                 result11.innerText = income * 30 / 100 + 'triệu đồng';
+    //                                          }else {
+    //                                                 result11.innerText = income * 35 / 100 + 'triệu đồng';
+    //     }
+    // }
+    /**         bài 5           */
+    // function areabai5() {
+    //     let canha = +document.getElementById('canha').value;
+    //     let canhb = +document.getElementById('canhb').value;
+    //
+    //     let result5 = canha * canhb / 2;
+    //     document.getElementById('bai5-result').innerText = result5;
+    // }
+
+
+    /**         bài 4       */
+    //     function area() {
+    //         let chieuDai = +document.getElementById('chieuDai').value;
+    //         let chieuCao = +document.getElementById('chieuCao').value;
+    //         let result4 = chieuCao * chieuDai;
+    //
+    //         document.getElementById('bai4-result').innerText = result4;
+    //
+    // }
+
+    /**     bài 3       */
+    //         function area3() {
+    //             let length3 = +document.getElementById('length3').value;
+    //             let result3 = length3**2;
+    //             document.getElementById('bai3-result').innerText = result3;
+    // }
+    /**     bài 2       */
+    // function convert_length() {
+    //     let lengthMet = +document.getElementById('length1').value;
+    //     let result2 = lengthMet * 3.2808;
+    //     document.getElementById('bai2-result').innerText = result2;
+    // }
+
+    /**     bài 1       */
+    // function convert_temp() {
+    //     let tempC = +document.getElementById('temp1').value;
+    //     let result1 = tempC * 9/5 + 32;
+    //     document.getElementById('bai1-result').innerText = result1;
+    // }
+</script>
+</html>
